@@ -40,7 +40,13 @@ function App() {
   return <div>
     <MailBox />
     <div className={css.cardGrid}>
-  {productData.map(item => {
+      {[...productData]
+        .sort((a, b) => {
+        const isPromotinalA = a.quantity <= 2;
+        const isPromotinalB = b.quantity <= 2;
+      return isPromotinalB - isPromotinalA;
+      })
+        .map(item => {
 
       const isPromotinal = item.quantity <=2
       return (
