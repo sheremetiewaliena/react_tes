@@ -1,8 +1,5 @@
-
-import css from "./App.module.css"
-
-import ProductCard from './components/ProductCard/ProductCard'
 import MailBox from './components/MailBox'
+import ProductGallery from "./components/ProductGallery/ProductGallery"
 const productData = [{
   id: "1_product",
   
@@ -39,31 +36,7 @@ function App() {
  
   return <div>
     <MailBox />
-    <div className={css.cardGrid}>
-      {[...productData]
-        .sort((a, b) => {
-        const isPromotinalA = a.quantity <= 2;
-        const isPromotinalB = b.quantity <= 2;
-      return isPromotinalB - isPromotinalA;
-      })
-        .map(item => {
-
-      const isPromotinal = item.quantity <=2
-      return (
-        <ProductCard 
-          key={item.id}
-          img={item.img}
-          title={item.title}
-          price={item.price}
-          hasDiscount={item.hasDiscount}
-          quantity={item.quantity}
-          description={item.description}
-          promotinal={isPromotinal} />
-      )
-    })}
-
-    
-    </div>
+   <ProductGallery productData={productData} />
 
   
   </div>
