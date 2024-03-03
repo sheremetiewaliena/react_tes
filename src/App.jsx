@@ -1,16 +1,18 @@
 
-import './App.css'
+import css from "./App.module.css"
 
-import ProductCard from './components/ProductCard'
+import ProductCard from './components/ProductCard/ProductCard'
 import MailBox from './components/MailBox'
 const productData = [{
   id: "1_product",
   
       img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQ0oGtbIltkWhp0ArvRHRoxopWVbqx_KsGaw&usqp=CAU",
       title: "Tako Black",
-      price: 4.00,
+  price: 4.00,
+      quantity: 4,
       hasDiscount: true,
-    description: "традиционное блюдо мексиканской кухни. Тако состоит из кукурузной или пшеничной тортильи c разнообразной начинкой — говядиной, свининой, курятиной, морепродуктами, чоризо, бобами, овощами, тушёной мякотью мексиканского кактуса."
+    description:
+  "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugiat, reprehenderit?",
 },
   {
     id: "2_product",
@@ -18,24 +20,29 @@ const productData = [{
     img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmvLbRzUKw9nin50QCtrEY1c7vK8INX7-noQ&usqp=CAU",
     title: "Tako Red",
     price: 4.50,
+    quantity: 7,
      hasDiscount: false,
-    description: "традиционное блюдо мексиканской кухни. Тако состоит из кукурузной или пшеничной тортильи c разнообразной начинкой — говядиной, свининой, курятиной, морепродуктами, чоризо, бобами, овощами, тушёной мякотью мексиканского кактуса."
-  },
+    description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugiat, reprehenderit?"
+  ,},
 { id: "3_product",
   
       img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTpeSjYZPRCSwEzlaS4ZuMaOlrr3s5f8y1BA&usqp=CAU",
       title: "Tako Blue",
-      price: 4.99,
+  price: 4.99,
+      quantity: 2,
       hasDiscount: false,
-    description: "традиционное блюдо мексиканской кухни. Тако состоит из кукурузной или пшеничной тортильи c разнообразной начинкой — говядиной, свининой, курятиной, морепродуктами, чоризо, бобами, овощами, тушёной мякотью мексиканского кактуса."
-  },
+    description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugiat, reprehenderit?"
+  ,},
 ]
 
 function App() {
  
   return <div>
     <MailBox />
-    {productData.map(item => {
+    <div className={css.cardGrid}>
+  {productData.map(item => {
+
+      const isPromotinal = item.quantity <=2
       return (
         <ProductCard 
           key={item.id}
@@ -43,11 +50,16 @@ function App() {
           title={item.title}
           price={item.price}
           hasDiscount={item.hasDiscount}
-          description={item.description } />
+          quantity={item.quantity}
+          description={item.description}
+          promotinal={isPromotinal} />
       )
     })}
 
     
+    </div>
+
+  
   </div>
 }
 

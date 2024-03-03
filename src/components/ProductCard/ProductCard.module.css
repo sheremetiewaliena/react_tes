@@ -1,0 +1,53 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  border: 3px solid var(--primary-color);
+  border-radius: 10px;
+  padding: 20px 20px;
+  font-family: sans-serif;
+}
+.card.cardPromotional {
+  background-color: yellow;
+  border-color: blue;
+}
+.cardImg {
+  max-width: 450px;
+  width: 100%;
+  /* margin-bottom: 25px; */
+  display: block;
+  padding-bottom: 12px;
+  margin-bottom: 12px;
+
+  margin: 0 auto;
+}
+.cardTitle {
+  font-size: 28px;
+  margin-bottom: 20px;
+  padding-top: 12px;
+  border-top: 1px solid grey;
+  margin-top: 0;
+}
+.cardDescription {
+  font-size: 16px;
+  margin-bottom: 30px;
+  margin-top: 0;
+}
+.cardPrice {
+  font-size: 22px;
+  margin-bottom: 20px;
+  margin-top: 0;
+}
+.cardAddToCardBtn {
+  transition: color 0.3s;
+}
+.cardAddToCardBtn:hover,
+.cardAddToCardBtn:focus {
+  color: var(--accent-color);
+}
+
+.cardSmileBtn {
+}
+.cardBtnWrapper {
+  display: flex;
+  gap: 20px;
+}
